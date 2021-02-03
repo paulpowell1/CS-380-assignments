@@ -1,0 +1,58 @@
+About Pascal’s Triangle
+Class Directed Learning
+Due: Tuesday, 2 February 2021, 11:59 pm
+A Helper Function
+Exercise 253 on page 161 shows a recursive definition of nCk. Here's a much more efficient way to compute binomial coefficients, which perhaps you can profitably use in your investigations:
+
+In [1]:
+from math import gcd
+
+def nCk(n, k):
+  if k < 0 or k > n:
+    return 0
+  else:
+    result = 1
+    d = 1
+    g = 1
+    m = min(k, n - k)
+    while (d <= m):
+      g = gcd(result, d)
+      result = n * (result // g)
+      result = (result // (d // g))
+      n -= 1
+      d += 1
+    return result
+Predominant and Fundamental
+The predominant pattern, the fundamental symmetry in Pascal's triangle is captured by the identity:$${n \choose k} = {n \choose n - k}$$
+
+Identify Identities
+Here are two different identities that point out the same pattern in Pascal's triangle. What is the name of this pattern?
+
+Identity 1
+For nonnegative integers $r$ and $n$:$$\sum^n_{k=0} {r+k \choose k} = {r+n+1 \choose n}$$
+Star of David
+
+Identity 2
+For nonnegative integers $m$ and $n$:$$\sum^n_{k=0} {k \choose m} = {n+1 \choose m+1}$$
+
+
+Investigate A Possible Relationship
+Does any row in Pascal's Triangle have the Fibonacci numbers' relationship between three consecutive entries? In other words, where x, y, and z are three consecutive entries in a single row, does x + y = z?
+
+The number of rows where this relationship could possibly hold is:
+
+[ ] Zero.
+[ ] At least one.
+[ ] At most one.
+[x] Exactly one.
+[ ] It cannot be determined.
+Investigate Another Possible Relationship
+Does any row in Pascal's Triangle have three consecutive entries in the ratio 1:2:3? (12:24:36 is an example of three numbers in a 1:2:3 ratio.)?
+
+The number of rows where this relationship could possibly hold is:
+
+[ ] Zero.
+[ ] At least one.
+[x] At most one.
+[ ] Exactly one.
+[ ] It cannot be determined.
