@@ -1,0 +1,87 @@
+Ponder and Prove Combinatorics and Probability
+Due: Saturday, 6 February 2021, 11:59 pm.
+Conjecture
+A number-theoretic conjecture of combinatorial significance is the following:
+
+$degree2({2n \choose n}) =$ the "bits-on count" (or population count, or Hamming weight) of $n$.
+
+$degree2(m)$ is defined as the number (degree, exponent) of 2's in the prime factorization of $m$.
+
+In other words, for any $m$, a positive integer, $m = 2^e \cdot o$ where $o$ is an odd positive integer (could be 1) and $e$ is a natural number, including zero --- which would be the case when $m$ is odd. It is the $e$ that is the $degree2$ of $m$.
+
+Another way to state this conjecture is that the number of 1's in the binary expansion of ${2n \choose n} $ for positive integer $n$ is equal to the number of 2's in the prime factorization of $n$.
+
+Your task is to write Python code to test this conjecture for as many positive integers as you can. See the self-assessment for more details.
+
+Note: a bit son count function can be a one-liner in Python: return bin(x).count ('1')
+
+Basic Probability Theory Question
+A dark room contains two barrels. The first barrel is filled with green marbles, the second is filled with a half-and-half mixture of green and blue marbles. So, there's a 100% chance of choosing a green marble from the first barrel, and a 50% chance of choosing either color in the second barrel. You reach into one of the barrels (it is dark, so you don't know which one) and select a marble at random. It's green. You select another. It's green too. You select a third, a fourth, a fifth, etc. Green each time. What is the minimum number of marbles you need to select to exceed a probability of 99% that you are picking them out of the all-green barrel? (Note that there are enough marbles so that the answer does not depend on how many marbles are in the second barrel.)
+
+A Related but Deeper Basic Probability Theory Question
+Take a deep breath. Suppose Shakespeare's account is accurate, and Julius Caesar gasped "You too, Brutus" before breathing his last. What is the probability that you just inhaled a molecule that Julius Caesar exhaled in his dying breath?
+
+Assume that after more than two thousand years the exhaled molecules are uniformly spread about the world and the vast majority are still free in the atmosphere. Assume further that there are $10^{44}$ molecules of air in the world, and that your inhaled quantity and Caesar's exhaled quantity were each about $2.2 \times 10^{22}$ molecules.
+
+Hint
+If a number $x$ is small, then $(1 - x) $ is approximately equal to $e^{-x}$.
+
+What is True?
+Assess yourself on how you did use the checkboxes below. Check a box by putting an 'X' in it only if it is warranted.
+
+What is true of my experience in general?
+(5 points each, 15 points total)
+
+[x] I had fun.
+[x] I learned something new.
+[x] I achieved something meaningful, or something I can build upon later.
+What is true of my report on what I learned?
+(5 points each, 25 points total)
+
+[x] I wrote a sufficient number of well-written sentences.
+[x] My report is free of "mechanical infelicities" (misspelled words, grammatical errors, punctuation errors, etc.).
+[x] I reported on any connections I found between this investigation and something I already know.
+[x] I reported who were and what contribution each of my collaborators made.
+[ ] I reported on how many numbers I was able to verify with a time/computation budget of 24 hours (in a row).
+What is true about my answers?
+(15 points each, 60 points total)
+
+[x] I figured out how to run a Python program continuously for at least 24 hours.
+[x] I refrained from printing out anything except the highest number I verified, knowing that printing just slows a program down.
+[ ] I got the right answer for the first probability theory question.
+[ ] I got the right answer for the second probability theory question.
+
+
+
+
+The first part I want to address is the problem about Julius Cezar. We are in fact breathing some of his breath. I did some research and found this article that did a great explanation. http://puzzlemath.blogspot.com/2011/06/julius-caesars-last-breath.html
+With two thousand years passing atmosphere has shifted across the globe and Cesar’s breath has mixed evenly with all the other molecules. There are about 1044 molecules of air and about 2 x 1022 molecules in each breath a person takes. That gives a 2 x 1022/1044 chance that one molecule we breath in came from Cezar’s last breath. To determine the probability of multiple things happening you multiply the probabilities. (1-2x10-22)(2x10^22). e = 2.718…. we then re write it as (e(-2x10^(-22)))(2x10^(22)) which equals 4e + 44 which is 1/2.72x4 = 1/ 54.73 = .018 which means there is a 1.8% chance that none of the molecules that are in our lungs came from Caesar’s last breath. There is then a 98.2% chance that at least one molecule in our lungs came from Caesar’s last breath. 
+
+The second problem with the marbles, I was able to find out how to do it via another article. I will be sure to work much harder on finding the answer myself rather than relying on other people's work.
+let there are n marble that you need to pick.
+
+P (n green marbles) =P (first barrel and all n are green) +P (second barrel and all n are green)
+
+= (1/2) *1+(1/2) *0.5n =0.5+0.5n+1
+
+therefore P (first barrel given all green marble)
+
+=P (first barrel and all n are green)/P (n green marbles)
+
+= (1/2) *1/(0.5+0.5n+1) >=0.99
+
+1/(1+0.5n) >=0.99
+
+1+0.5n <=1/0.99
+
+0.5n <=0.010101
+
+taking log on both sides and solving:
+
+n >=6.629
+
+n=7
+
+I didn't even think about looking in the book to see if the problem was in there. I'll be sure to do much more research next time and pay attention to what is in front of me. 
+
+As for the python program I did run a program for 24 hours and had it count for that time. I did not print anything to make sure it did not slow down the processing.
